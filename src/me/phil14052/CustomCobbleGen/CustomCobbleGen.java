@@ -6,7 +6,6 @@ import me.phil14052.CustomCobbleGen.API.Tier;
 import me.phil14052.CustomCobbleGen.Commands.MainCommand;
 import me.phil14052.CustomCobbleGen.Commands.MainTabComplete;
 import me.phil14052.CustomCobbleGen.Events.BlockEvents;
-import me.phil14052.CustomCobbleGen.Events.MinionEvents;
 import me.phil14052.CustomCobbleGen.Events.PlayerEvents;
 import me.phil14052.CustomCobbleGen.Files.*;
 import me.phil14052.CustomCobbleGen.Files.updaters.ConfigUpdater;
@@ -231,8 +230,6 @@ public class CustomCobbleGen extends JavaPlugin {
 			islandPluginHooked = new BentoboxHook();
 		}else if(pm.getPlugin("uSkyBlock") != null) {
 			islandPluginHooked = new uSkyBlockHook();
-		}else if(pm.getPlugin("FabledSkyBlock") != null) {
-			islandPluginHooked = new FabledHook();
 		}else if(pm.getPlugin("ASkyBlock") != null) {
 			islandPluginHooked = new ASkyBlockHook();
 		}else if(pm.getPlugin("SuperiorSkyblock2") != null) {
@@ -379,11 +376,6 @@ public class CustomCobbleGen extends JavaPlugin {
 		pm.registerEvents(new BlockEvents(), this);
 		pm.registerEvents(new InventoryEvents(), this);
 		pm.registerEvents(new PlayerEvents(), this);
-		if(pm.getPlugin("JetsMinions") != null) {
-			plugin.debug("Found JetsMinions");
-			connectedMinionPlugin = "JetsMinions";
-			pm.registerEvents(new MinionEvents(), this);
-		}
 	}
 	
 	public void debug(boolean overrideConfigOption, Object... objects) {

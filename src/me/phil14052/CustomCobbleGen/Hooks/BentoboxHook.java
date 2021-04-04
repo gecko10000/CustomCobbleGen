@@ -64,10 +64,7 @@ public class BentoboxHook implements IslandHook{
 	
 	@Override
 	public boolean isPlayerLeader(UUID uuid) {
-		Player p = Bukkit.getPlayer(uuid);
-		if(p == null) return false;
-		if(api.getIslands().hasIsland(p.getWorld(), uuid)) return true;
-		return this.getIslandLeaderFromPlayer(uuid).equals(uuid);
+		return true;
 	}
 
 	@Override
